@@ -1,0 +1,5 @@
+test_linger:./main.go \
+./checker/utils.go \
+./checker/checker.go \
+./checker/error.go \
+
