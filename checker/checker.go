@@ -74,6 +74,7 @@ func (c *Checker) wait(fd int) error {
 
 	ch := make(chan error)
 	c.m.Store(fd, ch)
+	defer c.m.Delete(fd)
 
 	if err := unix.EpollCtl(c.epfd, unix.EPOLL_CTL_ADD, fd, &event); err != nil {
 		return err
